@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        list = [
+            { id: '1', country: '中国', capital: '北京' },
+            { id: '2', country: '美国', capital: '华盛顿' },
+            { id: '3', country: '日本', capital: '东京' },
+            { id: '4', country: '韩国', capital: '首尔' }
+        ];
+        onload = function () {
+             
+            var body = document.getElementsByTagName('body')[0];
+
+
+            //创建表格
+            var table = document.createElement('table');
+            table.border = 1;
+            body.appendChild(table);
+            for (var i = 0; i < list.length; i++) {
+                //遍历对象
+                var item = list[i];
+                //创建行
+                var tr = document.createElement('tr');
+                table.appendChild(tr);
+                var backgroundColor;
+                //设置行的背景色
+                if (i%2 === 0) {
+                    tr.style.backgroundColor = 'red';
+                } else {
+                    tr.style.backgroundColor = 'blue';
+                }
+                tr.onmouseover = function () {
+                    backgroundColor = this.style.backgroundColor;
+                    this.style.backgroundColor = 'green';
+                }
+                tr.onmouseout = function() {
+                    this.style.background = backgroundColor;
+                }
+                //创建标题行
+                //var thead = document.createElement('thead');
+                //var item0 = list[0];
+                //for (var key0 in item0) {
+                //    document.createElement('th');
+                //    th.innerText = key0;
+                //    thead.appendChild(th);
+                //}
+                //table.appendChild(thead);
+
+
+
+
+                //遍历对象
+                for (var key in item) {
+                    //创建单元格
+                    var td = document.createElement('td');
+                    td.innerText = item[key];
+                    tr.appendChild(td);
+                }
+
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
