@@ -14,7 +14,7 @@
         }
 
         //表示加载完成后执行此代码：dom就绪，指标签加载完成
-        // 这时，标签指定的资源也可能还没加载完成
+        //这时，标签指定的资源也可能还没加载完成
         $(function() {
             alert("查看是否加载成功！！！");
         });
@@ -23,14 +23,15 @@
 <body>
     <input type="button" id="btnShow" value="显示" />
    <!-- query事件注册：-->
-    <script>
-        $('#btnShow').click(function() {
-            alert('第一次调用！！！！');
-        }); 
-        $('#btnShow').click(function() {
-            alert('第二次调用！！！！');
-        });
-    </script>
+<script>
+    //为按钮绑定点击事件
+    $('#btnShow').click(function() {
+        alert('第一次调用！！！！');
+    }); 
+    $('#btnShow').click(function() {
+        alert('第二次调用！！！！');
+    });
+</script>
 
 </body>
 </html>

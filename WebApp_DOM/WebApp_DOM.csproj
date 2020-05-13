@@ -67,6 +67,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="01基本选择器.html" />
+    <Content Include="02文档操作.html" />
+    <Content Include="03省市联动.html" />
     <Content Include="HtmlPage1.html" />
     <Content Include="jquery3.5.1\jquery-3.5.1.js" />
     <Content Include="jquery3.5.1\jquery-3.5.1.min.js" />

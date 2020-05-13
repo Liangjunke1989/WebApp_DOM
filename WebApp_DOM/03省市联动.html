@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="jquery3.5.1/jquery-3.5.1.js"></script>
+    <script>
+        //定义省市数据，键值对集合
+        var datas = {
+            "北京": ["朝阳", "海淀", "昌平", "丰台"],
+            "山东": ["青岛", "济南", "烟台", "泰安"],
+            "河南": ["洛阳", "开封", "郑州", "驻马店"]
+        };
+        $(function() {
+            //01.创建省的select
+            var select = $('<select id="selectProvince"></select>');
+            //为省的select绑定change事件
+            select.change(function () {
+                //找到市信息
+                var citys = datas[$(this).val()];
+                //删除市的原有option
+                $('#selectCity').empty();
+                //添加option
+                $.each(citys,
+                    function(index, item) {
+                        $('<option>' + item + '</option>').appendTo('#selectCity');
+                    });
+            });
+            //select.appendTo($('body'));
+            select.appendTo('body');//追加到body中
+
+            //遍历集合元素，遍历json对象
+            $.each(datas, function (key, value) {
+                //根据datas数据创建option并追加到select中
+              //  $('<option value="  ">' + key + '</option>').appendTo(select);
+                $('<option value="'+ key +'">' + key + '</option>').appendTo(select);
+                // value=" '+key+' ,$('#selectProvince').val() 
+            });
+            
+
+            //02.创建市的select
+            var selectCity = $('<select id="selectCity">></select>');
+            selectCity.appendTo('body');
+            //获取选中省的信息
+            var pro = $('#selectProvince').val();
+            //将省名称作为键，到集合中获取值
+            var citys = datas[pro];  //获取到了新的市的数组
+            //遍历所在省的所有市的数组
+            $.each(citys, function(index,item) {
+                    $('<option>' +item+ '</option>').appendTo(selectCity);
+                });
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

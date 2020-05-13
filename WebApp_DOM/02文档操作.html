@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>LJK</title>
+    <script src="jquery3.5.1/jquery-3.5.1.js"></script>
+    <script>
+        $(function() {
+            $('#btnAppend').click(function () {
+                //动态创建jquery对象
+                var m = $('<b>LJK</b>');
+
+                //追加
+                $('#divContainer').append(m);
+              //  $('#divContainer').after(m);
+              //  $('#divContainer').before(m);
+            });
+
+            $('#btnAppendTo').click(function () {
+                //动态创建jquery对象
+                var m = $('<b>Liang</b>').appendTo($('#divContainer'));
+            });
+
+            $('#btnEmpty').click(function () {
+                $('#divContainer').empty();
+            });
+
+            $('#btnRemove').click(function () {
+                $('#divContainer').remove();
+                //'b'选择器表示加粗的那个标签
+            });
+       
+        })
+    </script>
+</head>
+<body>
+<input type="button" id="btnAppend" value="Append"/>
+<input type="button" id="btnAppendTo" value="AppendTo"/>
+<input type="button" id="btnEmpty" value="清空"/>
+<input type="button" id="btnRemove" value="删除"/>
+<div id="divContainer">kkkkkk</div>
+</body>
+</html>
