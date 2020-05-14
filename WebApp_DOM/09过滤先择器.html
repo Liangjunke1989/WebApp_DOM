@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+   <!-- //根据文档，达到快速学习的能力！！！-->
+
+    <script>
+        var id = 10;        //为window对象定义了属性id
+        function showId() {
+            alert(this.id);
+        }
+
+        function Person() {
+            this.ID = 20;//为类定义了属性id
+        }
+
+        var p1 = new Person();
+        p1.sayId = showId;//将方法showId赋值给变量sayId
+        p1.sayId();       //调用方法
+    </script>
+</head>
+<body>
+
+</body>
+</html>

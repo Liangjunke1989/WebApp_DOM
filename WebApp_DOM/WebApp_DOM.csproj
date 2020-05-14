@@ -70,6 +70,11 @@
     <Content Include="02文档操作.html" />
     <Content Include="03省市联动.html" />
     <Content Include="05操作样式与类.html" />
+    <Content Include="06开关灯.html" />
+    <Content Include="07链式编程.html" />
+    <Content Include="08li练习.html" />
+    <Content Include="09过滤先择器.html" />
+    <Content Include="10属性选择器.html" />
     <Content Include="定时器延迟期.html" />
     <Content Include="04层级选择器.html" />
     <Content Include="jquery3.5.1\jquery-3.5.1.js" />
