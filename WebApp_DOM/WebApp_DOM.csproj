@@ -78,6 +78,7 @@
     <Content Include="11权限选择.html" />
     <Content Include="12蒙版层.html" />
     <Content Include="13全选、全消、反选.html" />
+    <Content Include="14删除.html" />
     <Content Include="定时器延迟期.html" />
     <Content Include="04层级选择器.html" />
     <Content Include="jquery3.5.1\jquery-3.5.1.js" />

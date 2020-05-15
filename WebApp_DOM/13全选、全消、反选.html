@@ -41,11 +41,21 @@
                     this.checked = !this.checked;
                 });
             });
+            //删除选中项
+            $('#btnRemove').click(function() {
+                //确认
+                if (confirm('提示', '确定要删除吗？')) {
+                    //选取所有数据行中选中的checkbox
+                   // $('#list :checked').parent().parent().remove();
+                    $('#list :checked').parents('tr').remove();
+                }
+            });
         });
     </script>
 </head>
 <body>
 <input type="button" id="btnReverse" value="反选"/>
+<input type="button" id="btnRemove" value="删除选中项"/>
 <table border="1">
     <thead>
     <th width="100"><input type="checkbox" id="chkAll"/></th>
