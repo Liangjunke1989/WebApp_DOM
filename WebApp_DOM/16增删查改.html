@@ -30,6 +30,7 @@
         }
     </style>
     <script>
+        //00_模拟数据，后期从数据库中获取
         var list = [
             { id: '1', country: '中国', capital: '北京' },
             { id: '2', country: '美国', capital: '华盛顿' },
@@ -44,6 +45,7 @@
                     '<td>' + this.id + '</td>' +
                     '<td>' + this.country + '</td>' +
                     '<td>' + this.capital + '</td>' +
+                    '<td><input type="button"   value="修改"/></td>' +
                     '</tr>').appendTo('#list');
             });
             //01_01为复选框chkAll设置点击事件，完成全选、全消的功能
@@ -87,11 +89,39 @@
                 $('<tr><td><input type="checkbox" id="'+$('#txtId').val()+'"></td>' +
                     '<td>'+$('#txtId').val()+'</td>' +
                     '<td>'+$('#txtCapital').val()+'</td>' +
-                    '<td>' + $('#txtCountry').val() + '</td></tr>').appendTo('#list');
+                    '<td>' + $('#txtCountry').val() +
+                    '<td><td><input type="button"   value="修改"/></td>' +
+                    '</tr>').appendTo('#list');
                 //04_02保存后隐藏层
                 $('#bgDiv').css('display', 'none');
                 $('#fgDiv').css('display','none');
-             });
+            });
+
+            //05_修改，为修改按钮绑定事件
+            //拿到表格中所有的按钮
+            $('#list :button').click(function() {
+                //显示添加/修改界面
+                //05_01_Div把整个界面占满
+                $('#bgDiv').css('display', 'block')
+                    .css('width', window.innerWidth + 'px')
+                    .height(window.innerHeight + 'px');
+                //05_02_div居中显示
+                $('#fgDiv').css('display', 'block')
+                    .css('left', (window.innerWidth - 200) / 2 + 'px')
+                    .css('top', (window.innerHeight - 300) / 2 + 'px');
+                //----问题点：找到当前按钮所在td的之前所有td，因为数据就在这些td中
+                var tds=$(this).parent().prevAll();
+                //设置文本框中的值  
+                $('#txtId').val(tds.eq(2).text());
+                $('#txtCountry').val(tds.eq(1).text());
+                $('#txtCapital').val(tds.eq(0).text());
+
+
+
+
+                //清除文本框中的数据
+                //$('#fgDiv :text').val('');
+            });
         });
 
 
@@ -102,9 +132,14 @@
     <input type="button" id="btnRemove" value="删除选中项" />
     <table border="1">
         <thead>
-            <th width="100">
-                <input type="checkbox" id="chkAll" /></th>
+        <th width="100">
+            <input type="checkbox" id="chkAll" /></th>
+        <th width="100">编号</th>
+        <th width="100">国家</th>
+        <th width="100">首都</th>
+        <th width="100">修改</th>
         </thead>
+
         <tbody id="list">
         <!--//存放表格数据-->
         </tbody>
@@ -125,6 +160,7 @@
         <br />
         首都：<input type="text" id="txtCapital" />
         <br />
+
         <input type="button" id="btnSave" value="保存" />
     </div>
 </body>
