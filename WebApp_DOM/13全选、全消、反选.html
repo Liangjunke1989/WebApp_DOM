@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="jquery3.5.1/jquery-3.5.1.js"></script>
+    <script>
+        var list = [
+            { id: '1', country: '中国', capital: '北京' },
+            { id: '2', country: '美国', capital: '华盛顿' },
+            { id: '3', country: '日本', capital: '东京' },
+            { id:'4',country:'韩国',capital:'首尔' }
+        ];
+        $(function() {
+            //生成表格数据
+            $.each(list,
+                function() {
+                    $('<tr><td><input type="checkbox" id="' +
+                        this.id +
+                        '"/></td>' +
+                        '<td>' +
+                        this.id +
+                        '</td>' +
+                        '<td>' +
+                        this.country +
+                        '</td>' +
+                        '<td>' +
+                        this.capital +
+                        '</td>' +
+                        '</tr>').appendTo('#list');
+                });
+            //为复选框chkAll设置点击事件，完成全选、全消的功能
+            $('#chkAll').click(function () { 
+                //根据当前复选框的状态设置其他行复选框的状态
+                $('#list :checkbox').attr('checked', this.checked);//this 的用法很关键！！！！
+            });
+            //反选
+            $('#btnReverse').click(function () {
+                //获取实际数据行的复选框
+                $('#list :checkbox').each(function(i) {//jquery对象.each
+                    this.checked = !this.checked;
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<input type="button" id="btnReverse" value="反选"/>
+<table border="1">
+    <thead>
+    <th width="100"><input type="checkbox" id="chkAll"/></th>
+    </thead>
+    <tbody id="list">
+
+    </tbody>
+</table>
+</body>
+</html>
